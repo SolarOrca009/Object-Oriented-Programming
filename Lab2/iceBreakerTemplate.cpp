@@ -44,11 +44,8 @@ bool writeFile(string, const vector<string> &, const vector<string> &);
  * @return int: index of question
  */
 int ranGen(int size){
-    random_device rd; // obtain a random number from hardware
-    mt19937 generator(rd()); // seed the generator
-
-    uniform_int_distribution<int> distribution(0, size - 1); // define the range
-    return distribution(generator);
+    int randomnumber = rand() % size;
+    return randomnumber;
 }
 
 /**
@@ -61,14 +58,14 @@ int ranGen(int size){
  * ​​​Return a bool instead in order to indicate whether the operation
  * succeeded or not
  */
-void readFile(string filename, vector<string> & vec) {
+bool readFile(string filename, vector<string> & vec) {
 
    ifstream inputFile(filename);
 
     //error handling
     if (!inputFile.is_open()) {
         cerr << "Error: Could not open file\n";
-        return;
+        return false;
     }
 
     string line;
@@ -78,8 +75,10 @@ void readFile(string filename, vector<string> & vec) {
     }
 
     inputFile.close();
-    return;
+
+    return true;
 }
+//done
 /**
  * @brief writes to filename with the first column from v0, second column from v1
  * 
@@ -100,11 +99,12 @@ void readFile(string filename, vector<string> & vec) {
  * -  pass by value (e.g. vector<string> v0),
  * -  pass by const reference (e.g. const vector<string> & v0),
  */
-void writeFile(string filename, vector<string> v0, vector<string> v1){
+bool writeFile(string filename, const vector<string> & v0, const vector<string> & v1){
 
     ofstream outputFile(filename);
-     if (!outputFile) {
+     if (!outputFile.is_open()) {
         cout << "Error: Could not create data.csv" << endl;
+        return false;
     }
 
     // write under the structure:
@@ -114,6 +114,7 @@ void writeFile(string filename, vector<string> v0, vector<string> v1){
     }
     outputFile.close();
 
+    return true;
 }
 
 
