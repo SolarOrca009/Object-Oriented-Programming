@@ -1,5 +1,6 @@
 #include<iostream>
 #include<fstream>
+#include<string>
 /**
  * TO DO: 
  * Add <vector>, <cstdlib>, and <ctime>​
@@ -7,8 +8,8 @@
 #include<vector>
 #include<cstdlib>
 #include<ctime>
-#include<random>
 //Done
+
 using namespace std;
 
 /**
@@ -23,7 +24,7 @@ using namespace std;
 
 //------------------------PROTOTYPE-------------------------------------------
 void promptFile(vector<string> &); 
-void printVec(vector<string>);
+void printVec(const vector<string>);
 int ranGen(int);
 bool readFile(string, vector<string> &);
 bool writeFile(string, const vector<string> &, const vector<string> &);
@@ -110,7 +111,8 @@ bool writeFile(string filename, const vector<string> & v0, const vector<string> 
     // write under the structure:
     // Student_Name, Question_#
     for(int i = 0; i < v0.size(); i++){
-        outputFile << v0[i] << "," << v1[ranGen(static_cast<int>(v1.size()))] << endl;
+        outputFile << v0[i] << "," << v1[ranGen(v1.size())] << endl;
+        
     }
     outputFile.close();
 
@@ -153,7 +155,7 @@ void promptFile(vector<string> & v){
  * 
  * @param v: vector<string>
  */
-void printVec(vector<string> v){
+void printVec(const vector<string> v){
     for(int i = 0; i < v.size(); i++){
         cout << v[i] << endl;
     }
