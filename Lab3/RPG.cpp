@@ -2,11 +2,12 @@ using namespace std;
 #include <vector> 
 #include "RPG.h"
 
+//defult constructor
 RPG::RPG() {
     name = "NPC";
     hits_taken = 0;
-    luck = 0.1f;
-    exp = 50.0f;
+    luck = 0.1;
+    exp = 50.0;
     level = 1;
 
 }
@@ -44,7 +45,9 @@ int RPG::getLevel() const {
     return level;
 }
 
-// The Setter
+/**
+ * @brief sets hits_taken to new_hits
+ */
 void RPG::setHitsTaken(int new_hits) {
     hits_taken = new_hits;
 }

@@ -18,11 +18,9 @@ class RPG {
 
     // Destructor: runs when an object is destroyed.
     ~RPG();
-
-    // Check whether the character is alive.
+    
+    // Mutator
     bool isAlive() const;
-
-    //Change number is hits taken.
     void setHitsTaken(int new_hits);
 
     //Accessors: read the character's values.
@@ -31,7 +29,6 @@ class RPG {
     float getLuck() const;
     float getEXP() const;
     int getLevel() const;
-
 
 
    private:
