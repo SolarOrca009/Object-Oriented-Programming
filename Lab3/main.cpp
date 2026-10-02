@@ -1,5 +1,6 @@
 #include <iostream> 
 #include "RPG.h"
+#include <cstdio> 
 using namespace std;
 
 int main() {

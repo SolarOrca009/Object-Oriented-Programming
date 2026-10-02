@@ -1,6 +1,6 @@
-using namespace std;
-#include <vector> 
 #include "RPG.h"
+using namespace std;
+
 
 //defult constructor
 RPG::RPG() {
